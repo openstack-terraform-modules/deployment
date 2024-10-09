@@ -1,0 +1,7 @@
+#!/usr/bin/env -S pkgx bash
+
+MODULE_PATH="$( dirname "${BASH_SOURCE[0]}" )"
+PROJECT_PATH="$( realpath "${MODULE_PATH}/../../../" )"
+DEPLOYMENT_FILE="${PROJECT_PATH}/deployment.json"
+
+rm --verbose "${DEPLOYMENT_FILE}"
