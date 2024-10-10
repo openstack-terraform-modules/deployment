@@ -13,7 +13,7 @@ printf '[%s] INPUT: %s\n' \
        "${INPUT}" \
     >> "${PROJECT_PATH}/deployment.log"
 
-DEPLOYMENT_FILE_PATH="${
+DEPLOYMENT_FILE_PATH="$(
     printf '%s' "${INPUT}" \
   | jq --raw-output '.deployment_file_path'
 )"
