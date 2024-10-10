@@ -1,6 +1,6 @@
 #!/usr/bin/env -S pkgx +bash^5 +jq^1.6 bash
 
-set -x
+#set -x
 
 INPUT="$( [[ -p /dev/stdin ]] && cat - || echo "$@" )"
 
