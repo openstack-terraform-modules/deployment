@@ -3,9 +3,9 @@
 > Given an optional tenant name and a deployment uuid (create one if not exists), this module generate a deployment id.  
 > It can be useful to tag objects deployed on a shared project, either many deployment of a single tenant or many deployment of many tenant (a classroom for example).
 
-## prerequisites
+## Prerequisites
 
-Having [installed](https://docs.pkgx.sh/run-anywhere/terminals#other-ways-to-install) [pkgx](https://pkgx.sh/)
+Having [installed](https://docs.pkgx.sh/run-anywhere/terminals#other-ways-to-install) pkgx.
 
 ## Usage
 
