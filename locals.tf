@@ -7,5 +7,5 @@ locals {
         local.tenant_name,
         element(split("-",uuid()),1)
     ])
-    deployment_file_path = var.deployment_file_path != "" ? var.deployment_file_path : "${local.project_path}/${local.tenant_name}-deployment.json"
+    deployment_file_path = var.deployment_file_path != "" ? var.deployment_file_path : join("/",[local.project_path, join("-", )])"/${local.tenant_name}-deployment.json"
 }

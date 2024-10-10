@@ -1,5 +1,5 @@
 data external deployment {
-    program = [ "sh", "${path.module}/deployment.pkgx" ]
+    program = [ "sh", "${path.module}/scripts/deployment.pkgx" ]
 
     query = {
         tenant_name = local.tenant_name
