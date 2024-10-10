@@ -6,7 +6,7 @@ output uuid {
   )
 }
 
-output "id" {
+output id {
   value = lookup(
     data.external.deployment.result,
     "deployment_id",
@@ -14,6 +14,6 @@ output "id" {
   )
 }
 
-output "project_path" {
+output project_path {
   value = local.project_path
 }
