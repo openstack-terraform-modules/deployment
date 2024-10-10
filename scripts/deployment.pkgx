@@ -13,23 +13,30 @@ printf '[%s] INPUT: %s\n' \
        "${INPUT}" \
     >> "${PROJECT_PATH}/deployment.log"
 
-TENANT_NAME="$(
+DEPLOYMENT_FILE_PATH="${
     printf '%s' "${INPUT}" \
-  | jq --raw-output '.tenant_name'
+  | jq --raw-output '.deployment_file_path'
 )"
-
-DEPLOYMENT_FILE_PATH="${PROJECT_PATH}/${TENANT_NAME}-deployment.json"
-
-DEPLOYMENT_ID="$(
-    printf '%s' "${INPUT}" \
-  | jq --raw-output '.deployment_id'
-)"
-
-printf 'DEPLOYMENT_ID: %s\n' "${DEPLOYMENT_ID}" \
-    >> "${PROJECT_PATH}/deployment.log"
 
 if [ ! -f "${DEPLOYMENT_FILE_PATH}" ]; then
-  printf '{"deployment_id":"%s"}' \
+  TENANT_NAME="$(
+      printf '%s' "${INPUT}" \
+    | jq --raw-output '.tenant_name'
+  )"
+
+  DEPLOYMENT_UUID="$(
+      printf '%s' "${INPUT}" \
+    | jq --raw-output '.deployment_uuid'
+  )"
+
+  DEPLOYMENT_ID="$(
+      printf '%s' "${INPUT}" \
+    | jq --raw-output '.deployment_id'
+  )"
+
+  printf '{"tenant_name":"%s", "deployment_uuid":"%s", "deployment_id":"%s"}' \
+         "${TENANT_NAME}" \
+         "${DEPLOYMENT_UUID}" \
          "${DEPLOYMENT_ID}" \
        > "${DEPLOYMENT_FILE_PATH}"
 fi

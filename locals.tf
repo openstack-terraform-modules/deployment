@@ -3,9 +3,12 @@ locals {
     project_path  = abspath("${local.module_path}/../../../")
     tenant_name   = var.tenant_name
      # == "unset" ? element(split("-",uuid()),1) : var.tenant
-    deployment_id = join("-",[
+    deployment_uuid = var.deployment_uuid != "" ? var.deployment_uuid : uuid()
+    deployment_uuid_short = element(split("-",local.deployment_uuid),1)
+    deployment_id = local.tenant_name != "" ? join("-",[
         local.tenant_name,
-        element(split("-",uuid()),1)
-    ])
-    deployment_file_path = var.deployment_file_path != "" ? var.deployment_file_path : join("/",[local.project_path, join("-", )])"/${local.tenant_name}-deployment.json"
+        local.deployment_uuid_short
+    ]) : local.deployment_uuid_short
+    deployment_file_name = local.tenant_name != "" ? join("-", [local.tenant_name, "deployment.json"]) : "deployment.json"
+    deployment_file_path = var.deployment_file_path != "" ? var.deployment_file_path : join("/",[local.project_path, deployment_file_name])
 }

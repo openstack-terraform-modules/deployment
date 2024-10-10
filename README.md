@@ -22,6 +22,7 @@ output deployment {
 ```
 
 ### Multi-tenant project
+
 In a modules.tf file of your project declare the following code
 
 ```bash
