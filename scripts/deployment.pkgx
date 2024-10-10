@@ -1,4 +1,4 @@
-#!/usr/bin/env -S pkgx +bash^5 +jq^1.6 bash
+#!/usr/bin/env -S pkgx +jq^1.6 bash^5
 
 #set -x
 
