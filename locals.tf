@@ -10,5 +10,5 @@ locals {
         local.deployment_uuid_short
     ]) : local.deployment_uuid_short
     deployment_file_name = local.tenant_name != "" ? join("-", [local.tenant_name, "deployment.json"]) : "deployment.json"
-    deployment_file_path = var.deployment_file_path != "" ? var.deployment_file_path : join("/",[local.project_path, deployment_file_name])
+    deployment_file_path = var.deployment_file_path != "" ? var.deployment_file_path : join("/", [local.project_path, local.deployment_file_name])
 }
