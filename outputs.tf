@@ -14,6 +14,13 @@ output id {
   )
 }
 
+output tenant_name {
+  value = lookup(
+    data.external.deployment.result,
+    "tenant_name",
+    "NOT FOUND ERROR"
+  )
+}
 output project_path {
   value = local.project_path
 }

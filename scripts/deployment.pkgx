@@ -1,4 +1,4 @@
-#!/usr/bin/env -S pkgx +bash
+#!/usr/bin/env -S pkgx +bash^5 +jq^1.6 bash
 
 set -x
 
@@ -6,18 +6,32 @@ INPUT="$( [[ -p /dev/stdin ]] && cat - || echo "$@" )"
 
 MODULE_PATH="$( dirname "${BASH_SOURCE[0]}" )"
 PROJECT_PATH="$( realpath "${MODULE_PATH}/../../../" )"
-DEPLOYMENT_FILE="${PROJECT_PATH}/deployment.json"
+HORODATE="$(date)"
 
-printf 'INPUT: %s\n' "${INPUT}" > "${PROJECT_PATH}/deployment.log"
+printf '[%s] INPUT: %s\n' \
+       "${HORODATE}" \
+       "${INPUT}" \
+    >> "${PROJECT_PATH}/deployment.log"
 
-DEPLOYMENT_ID="$( printf '%s' "${INPUT}" | jq --raw-output '.deployment_id' )"
+TENANT_NAME="$(
+    printf '%s' "${INPUT}" \
+  | jq --raw-output '.tenant_name'
+)"
 
-printf 'DEPLOYMENT_ID: %s\n' "${DEPLOYMENT_ID}" >> "${PROJECT_PATH}/deployment.log"
+DEPLOYMENT_FILE_PATH="${PROJECT_PATH}/${TENANT_NAME}-deployment.json"
 
-if [ ! -f "${DEPLOYMENT_FILE}" ]; then
+DEPLOYMENT_ID="$(
+    printf '%s' "${INPUT}" \
+  | jq --raw-output '.deployment_id'
+)"
+
+printf 'DEPLOYMENT_ID: %s\n' "${DEPLOYMENT_ID}" \
+    >> "${PROJECT_PATH}/deployment.log"
+
+if [ ! -f "${DEPLOYMENT_FILE_PATH}" ]; then
   printf '{"deployment_id":"%s"}' \
          "${DEPLOYMENT_ID}" \
-       > "${DEPLOYMENT_FILE}"
+       > "${DEPLOYMENT_FILE_PATH}"
 fi
 
-cat "${DEPLOYMENT_FILE}"
+cat "${DEPLOYMENT_FILE_PATH}"
