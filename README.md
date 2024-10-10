@@ -1,7 +1,7 @@
 # deployment
 
 > Given an optional tenant name and a deployment uuid (create one if not exists), this module generate a deployment id.  
-> It can be useful to tag objects deployed on a shared project, either many deployment of a single tenant or many deployment of many tenant (a classroom for example).
+> It can be useful to tag objects deployed on a shared openstack project, either many deployment of a single tenant or many deployment of many tenant (a classroom for example).
 
 ## Prerequisites
 
