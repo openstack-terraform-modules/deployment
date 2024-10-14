@@ -3,7 +3,7 @@ locals {
     project_path  = abspath("${local.module_path}/../../../")
     tenant_name   = var.tenant_name
      # == "unset" ? element(split("-",uuid()),1) : var.tenant
-    deployment_uuid = var.deployment_uuid != "" ? var.deployment_uuid : lower(uuid())
+    deployment_uuid = var.deployment_uuid != "" ? lower(var.deployment_uuid) : lower(uuid())
     deployment_uuid_short = element(split("-",local.deployment_uuid),0)
     deployment_id = local.tenant_name != "" ? join("-",[
         local.tenant_name,
