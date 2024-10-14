@@ -19,7 +19,7 @@ The UUIDs are lowered.
 
 ```bash
 module deployment {
-    source = "git::http://github.com/openstack-terraform-modules/deployment"
+    source = "git::https://github.com/openstack-terraform-modules/deployment.git"
 }
 
 output deployment {
@@ -52,12 +52,12 @@ deployment = {
 
 ```bash
 module alice_deployment {
-    source = "git::http://github.com/openstack-terraform-modules/deployment"
+    source = "git::https://github.com/openstack-terraform-modules/deployment.git"
     tenant_name = "alice" 
 }
 
 module bob_deployment {
-    source = "git::http://github.com/openstack-terraform-modules/deployment"
+    source = "git::https://github.com/openstack-terraform-modules/deployment.git"
     tenant_name = "bob"
     deployment_uuid = "C6858C03-F5CB-4624-BE44-E60A989638B8"
 }
