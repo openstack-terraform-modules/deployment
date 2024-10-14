@@ -22,7 +22,7 @@ output deployment {
   value = {
     file_path = module.deployment.file_path
     uuid = module.deployment.uuid
-    tenant_name = module.deployment.name
+    tenant_name = module.deployment.tenant_name
     id = module.deployment.id
   }
 }
@@ -62,7 +62,7 @@ output alice_deployment {
   value = {
     file_path = module.alice_deployment.file_path
     uuid = module.alice_deployment.uuid
-    tenant_name = module.alice_deployment.name
+    tenant_name = module.alice_deployment.tenant_name
     id = module.alice_deployment.id
   }
 }
@@ -71,7 +71,7 @@ output bob_deployment {
   value = {
     file_path = module.bob_deployment.file_path
     uuid = module.bob_deployment.uuid
-    tenant_name = module.bob_deployment.name
+    tenant_name = module.bob_deployment.tenant_name
     id = module.bob_deployment.id
   }
 }
