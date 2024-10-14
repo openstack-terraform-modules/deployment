@@ -5,12 +5,13 @@
 
 ## Prerequisites
 
-Having [installed](https://docs.pkgx.sh/run-anywhere/terminals#other-ways-to-install) pkgx.
+Having [installed](https://docs.pkgx.sh/run-anywhere/terminals#other-ways-to-install) pkgx that is used to version the module scripts dependencies (bash, jq).
 
 ## Usage
 
 ### Single-tenant project
 
+#### Configuration
 ```bash
 module deployment {
     source = "git::http://github.com/openstack-terraform-modules/deployment"
@@ -24,10 +25,20 @@ output deployment {
   }
 }
 ```
+#### Output
+
+```bash
+Outputs:
+
+deployment = {
+  "id" = "a0288b3d"
+  "tenant_name" = ""
+  "uuid" = "a0288b3d-5488-7e46-bcc0-825bf5a4c0e2"
+}
+
+```
 
 ### Multi-tenant project
-
-In a modules.tf file of your project declare the following code
 
 ```bash
 module alice_deployment {
@@ -40,11 +51,7 @@ module bob_deployment {
     tenant_name = "bob"
     deployment_uuid = "C6858C03-F5CB-4624-BE44-E60A989638B8"
 }
-```
 
-In a outputs.tf file
-
-```bash
 output alice_deployment {
   value = {
     uuid = module.alice_deployment.uuid
@@ -60,5 +67,4 @@ output bob_deployment {
     id = module.bob_deployment.id
   }
 }
-
 ```

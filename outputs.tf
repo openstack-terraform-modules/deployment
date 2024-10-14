@@ -21,6 +21,10 @@ output tenant_name {
     "NOT FOUND ERROR"
   )
 }
+
+output deployment_file_path {
+    value = local.deployment_file_path
+}
 output project_path {
   value = local.project_path
 }

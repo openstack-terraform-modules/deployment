@@ -1,4 +1,4 @@
-#!/usr/bin/env -S pkgx bash
+#!/usr/bin/env -S pkgx +gnu/coreutils bash^5
 
 MODULE_PATH="$( dirname "${BASH_SOURCE[0]}" )"
 PROJECT_PATH="$( realpath "${MODULE_PATH}/../../../" )"
