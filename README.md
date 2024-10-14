@@ -78,3 +78,21 @@ output bob_deployment {
 ```
 
 #### Output
+
+```bash
+Outputs:
+
+alice_deployment = {
+  "file_path" = "/home/ci/github.com/openstack-terraform-modules/deployment/terraform/alice-deployment.json"
+  "id" = "alice-9aa58a2d"
+  "tenant_name" = "alice"
+  "uuid" = "9aa58a2d-26eb-d452-b99f-e705c04d4b06"
+}
+bob_deployment = {
+  "file_path" = "/home/ci/github.com/openstack-terraform-modules/deployment/terraform/bob-deployment.json"
+  "id" = "bob-C6858C03"
+  "tenant_name" = "bob"
+  "uuid" = "C6858C03-F5CB-4624-BE44-E60A989638B8"
+}
+
+```
