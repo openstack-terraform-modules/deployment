@@ -12,6 +12,7 @@ Having [installed](https://docs.pkgx.sh/run-anywhere/terminals#other-ways-to-ins
 ### Single-tenant project
 
 #### Configuration
+
 ```bash
 module deployment {
     source = "git::http://github.com/openstack-terraform-modules/deployment"
@@ -19,12 +20,14 @@ module deployment {
 
 output deployment {
   value = {
+    file_path = module.deployment.file_path
     uuid = module.deployment.uuid
     tenant_name = module.deployment.name
     id = module.deployment.id
   }
 }
 ```
+
 #### Output
 
 ```bash
@@ -54,6 +57,7 @@ module bob_deployment {
 
 output alice_deployment {
   value = {
+    file_path = module.deployment.file_path
     uuid = module.alice_deployment.uuid
     tenant_name = module.alice_deployment.name
     id = module.alice_deployment.id
@@ -62,6 +66,7 @@ output alice_deployment {
 
 output bob_deployment {
   value = {
+    file_path = module.deployment.file_path
     uuid = module.bob_deployment.uuid
     tenant_name = module.bob_deployment.name
     id = module.bob_deployment.id

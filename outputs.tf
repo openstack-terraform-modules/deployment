@@ -22,7 +22,7 @@ output tenant_name {
   )
 }
 
-output deployment_file_path {
+output file_path {
     value = local.deployment_file_path
 }
 output project_path {
