@@ -7,6 +7,10 @@
 
 Having [installed](https://docs.pkgx.sh/run-anywhere/terminals#other-ways-to-install) pkgx that is used to version the module scripts dependencies (bash, jq).
 
+## Note
+
+the UUIDs are lowered.
+
 ## Usage
 
 ### Single-tenant project
@@ -90,9 +94,9 @@ alice_deployment = {
 }
 bob_deployment = {
   "file_path" = "/home/ci/github.com/openstack-terraform-modules/deployment/terraform/bob-deployment.json"
-  "id" = "bob-C6858C03"
+  "id" = "bob-c6858c03"
   "tenant_name" = "bob"
-  "uuid" = "C6858C03-F5CB-4624-BE44-E60A989638B8"
+  "uuid" = "c6858c03-f5cb-4624-be44-e60a989638b8"
 }
 
 ```
