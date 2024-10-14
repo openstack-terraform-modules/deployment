@@ -34,6 +34,7 @@ output deployment {
 Outputs:
 
 deployment = {
+  file_path" = "/home/ci/github.com/openstack-terraform-modules/deployment/terraform/deployment.json"
   "id" = "a0288b3d"
   "tenant_name" = ""
   "uuid" = "a0288b3d-5488-7e46-bcc0-825bf5a4c0e2"
@@ -42,6 +43,8 @@ deployment = {
 ```
 
 ### Multi-tenant project
+
+#### Configuration
 
 ```bash
 module alice_deployment {
@@ -57,7 +60,7 @@ module bob_deployment {
 
 output alice_deployment {
   value = {
-    file_path = module.deployment.file_path
+    file_path = module.alice_deployment.file_path
     uuid = module.alice_deployment.uuid
     tenant_name = module.alice_deployment.name
     id = module.alice_deployment.id
@@ -66,10 +69,12 @@ output alice_deployment {
 
 output bob_deployment {
   value = {
-    file_path = module.deployment.file_path
+    file_path = module.bob_deployment.file_path
     uuid = module.bob_deployment.uuid
     tenant_name = module.bob_deployment.name
     id = module.bob_deployment.id
   }
 }
 ```
+
+#### Output
