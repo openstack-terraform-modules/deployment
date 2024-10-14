@@ -9,7 +9,7 @@ Having [installed](https://docs.pkgx.sh/run-anywhere/terminals#other-ways-to-ins
 
 ## Note
 
-the UUIDs are lowered.
+The UUIDs are lowered.
 
 ## Usage
 
