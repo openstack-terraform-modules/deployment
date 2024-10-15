@@ -29,7 +29,7 @@ output project_path {
   value = local.project_path
 }
 
-output values {
+output outputs {
   value = object({
     uuid = lookup(
       data.external.deployment.result,
