@@ -1,5 +1,11 @@
 data external deployment {
-    program = [ "${path.module}/scripts/deployment.pkgx" ]
+    #
+    # https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external
+    #
+    program = [
+        "/usr/bin/env", "-S", "+jq^1.6", "+bash^5", "bash",
+        "${path.module}/scripts/deployment.pkgx"
+    ]
 
     query = {
         tenant_name = local.tenant_name

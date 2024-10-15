@@ -1,3 +1,6 @@
+
+/*
+
 output uuid {
     value = lookup(
     data.external.deployment.result,
@@ -28,6 +31,7 @@ output file_path {
 output project_path {
   value = local.project_path
 }
+*/
 
 output outputs {
   value = {
