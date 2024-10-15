@@ -30,7 +30,7 @@ output project_path {
 }
 
 output outputs {
-  value = object({
+  value = {
     uuid = lookup(
       data.external.deployment.result,
       "deployment_uuid",
@@ -47,5 +47,5 @@ output outputs {
      "NOT FOUND ERROR"
     )
     file_path = local.deployment_file_path
-  })
+  }
 }
