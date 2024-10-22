@@ -24,6 +24,11 @@ if [ ! -f "${DEPLOYMENT_FILE_PATH}" ]; then
     | jq --raw-output '.tenant_name'
   )"
 
+  DOMAIN_NAME="$(
+          printf '%s' "${INPUT}" \
+    | jq --raw-output '.ddomain_name'
+  )"
+
   DEPLOYMENT_UUID="$(
       printf '%s' "${INPUT}" \
     | jq --raw-output '.deployment_uuid'
@@ -34,8 +39,9 @@ if [ ! -f "${DEPLOYMENT_FILE_PATH}" ]; then
     | jq --raw-output '.deployment_id'
   )"
 
-  printf '{"tenant_name":"%s", "deployment_uuid":"%s", "deployment_id":"%s"}' \
+  printf '{"tenant_name":"%s", "domain_name":"%s", "deployment_uuid":"%s", "deployment_id":"%s"}' \
          "${TENANT_NAME}" \
+         "${DOMAIN_NAME}" \
          "${DEPLOYMENT_UUID}" \
          "${DEPLOYMENT_ID}" \
        > "${DEPLOYMENT_FILE_PATH}"
