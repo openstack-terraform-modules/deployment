@@ -12,3 +12,7 @@ variable deployment_uuid {
     type = string
     default = ""
 }
+
+variable domain_name {
+    type = string
+}

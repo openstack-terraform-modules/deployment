@@ -11,4 +11,9 @@ locals {
     ]) : local.deployment_uuid_short
     deployment_file_name = local.tenant_name != "" ? join("-", [local.tenant_name, "deployment.json"]) : "deployment.json"
     deployment_file_path = var.deployment_file_path != "" ? var.deployment_file_path : join("/", [local.project_path, local.deployment_file_name])
+
+    domain_name = format("%s.%s",
+        data.openstack_identity_auth_scope_v3.scope.project_name,
+        var.domain_name
+    )
 }

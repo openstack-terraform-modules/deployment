@@ -51,5 +51,6 @@ output outputs {
      "NOT FOUND ERROR"
     )
     file_path = local.deployment_file_path
+    domain_name = local.domain_name
   }
 }
